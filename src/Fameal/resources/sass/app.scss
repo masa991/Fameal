@@ -1,0 +1,49 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: Meiryo,"Hiragino Kaku Gothic Pro","MS PGothic",sans-serif;
+  line-height: 1.66667;
+  color: #333333;
+  background-color: #fff;
+}
+
+main {
+  padding-top: 9rem;
+  min-height: 70rem;
+  background-color: #FCFAF5;
+}
+
+/*-----------------------------------------------------------------------------------------------------
+   header            header           header           header           header           header
+------------------------------------------------------------------------------------------------------*/
+.header-nav {
+  background-color: chocolate;
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(0,0,0,0.5,));
+}
+.header-title {
+  color: #fff;
+  font-size: 3rem;
+  text-decoration: none;
+  &:hover {
+    color: #ccc;
+  }
+}
+.header-nav-menu {
+  color: #fff;
+  font-size: 1.4rem;
+  &:hover {
+    color: #ddd;
+  }
+}
