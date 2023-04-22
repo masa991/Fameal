@@ -47,3 +47,38 @@ main {
     color: #ddd;
   }
 }
+
+/*-----------------------------------------------------------------------------------------------------
+   footer          footer          footer          footer          footer          footer
+------------------------------------------------------------------------------------------------------*/
+.fameal_footer {
+  background-color: chocolate;
+}
+
+.footer-container {
+  margin: 0 9rem;
+  padding: 0 1rem;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  height: 6.5rem;
+  justify-content: space-between;
+}
+
+.footer-menu {
+  padding: 0 1.5rem;
+  display: inline;
+  &.center {
+    border-left: 0.1rem solid #000;
+  }
+}
+
+.footer-copyright {
+  margin-right: 3rem;
+  p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+}
