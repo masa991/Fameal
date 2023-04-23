@@ -25,10 +25,31 @@ main {
   background-color: #FCFAF5;
 }
 
+.content {
+  padding-top: 9rem;
+  min-height: 70rem;
+}
+
+.button {
+  width: 15rem;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0;
+  border: 0.1rem solid #ddd;
+  color: #fff;
+  background-color: #F57C4B;
+}
+
+.button-box {
+  text-align: center;
+}
+
 /*-----------------------------------------------------------------------------------------------------
    header            header           header           header           header           header
 ------------------------------------------------------------------------------------------------------*/
 .header-nav {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
   background-color: chocolate;
   filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(0,0,0,0.5,));
 }
@@ -53,6 +74,7 @@ main {
 ------------------------------------------------------------------------------------------------------*/
 .fameal_footer {
   background-color: chocolate;
+  margin-top: -3rem;
 }
 
 .footer-container {
@@ -81,4 +103,113 @@ main {
     margin-bottom: 0;
     font-size: 1.2rem;
   }
+}
+
+/*-----------------------------------------------------------------------------------------------------
+     terms          terms          terms          terms          terms          terms
+------------------------------------------------------------------------------------------------------*/
+.terms .container-lg {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+
+.terms .content {
+  width: 100%;
+}
+
+.title-container h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+.article-head {
+  font-weight: bold;
+  margin-top: 4rem;
+}
+
+.term-text {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+/*-----------------------------------------------------------------------------------------------------
+    privacy_policy          privacy_policy         privacy_policy         privacy_policy
+------------------------------------------------------------------------------------------------------*/
+.privacy_policy .container-lg {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+}
+
+.privacy_policy .content {
+  width: 100%;
+}
+
+.policy-text {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+/*-----------------------------------------------------------------------------------------------------
+   top           top            top            top             top              top
+------------------------------------------------------------------------------------------------------*/
+.top.content {
+  margin-top: -6rem;
+}
+
+.top .masthead {
+  padding: 6rem 0 10rem;
+  background-image: url('../../public/assets/images/family-meal.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten;
+  height: 77rem;
+}
+
+.page-container{
+  width: 98rem;
+  margin: 0 auto;
+}
+
+.masthead-form {
+  background-color: #fff;
+  margin: 13rem 0;
+  padding: 3rem;
+  border-radius: 0.8rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.3rem rgba(0,0,0,0.2,));
+  h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+}
+
+.top-register-button {
+  display: block;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  width: 40rem;
+  background-color: coral;
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+    background-color: coral;
+  }
+}
+
+/*-----------------------------------------------------------------------------------------------------
+    register/login              register/login              register/login             register/login
+------------------------------------------------------------------------------------------------------*/
+.card-header {
+  font-size: 2.4rem;
+  text-align: center;
+  padding: 0.8rem 0;
+  background-color: #fff;
 }
