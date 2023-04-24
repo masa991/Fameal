@@ -27,4 +27,20 @@ Route::prefix('register')->group(function () {
 Route::get('invite', 'App\Http\Controllers\InviteController@showLinkRequestForm')->name('invite')->middleware('auth');
 Route::post('invite', 'App\Http\Controllers\InviteController@sendInviteFamilyEmail')->name('invite.email')->middleware('auth');
 
+
+Route::prefix('users')->group(function () {
+  Route::middleware('auth')->group(function () {
+    Route::get('/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit');
+    Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+  });
+});
+
+Route::prefix('families')->name('families.')->group(function () {
+  Route::middleware('auth')->group(function () {
+    Route::get('/{id}/edit', [App\Http\Controllers\FamilyController::class, 'edit'])->name('edit');
+    Route::post('/update', [App\Http\Controllers\FamilyController::class, 'update'])->name('update');
+    Route::get('/{id}', [App\Http\Controllers\FamilyController::class, 'show'])->name('show');
+  });
+});
+
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

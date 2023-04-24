@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -88,7 +89,6 @@ class RegisterController extends Controller
     return User::create([
       'family_id' => $family->id,
       'name' => $data['name'],
-      'nickname' => $data['nickname'],
       'email' => $data['email'],
       'password' => Hash::make($data['password']),
     ]);
@@ -115,7 +115,7 @@ class RegisterController extends Controller
     }
 
     $request->validate([
-      'nickname' => ['required', 'string', 'max:50'],
+      'name' => ['required', 'string', 'max:50'],
       'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->whereNull('deleted_at'),],
       'password' => ['required', 'string', 'min:8', 'confirmed'],
     ]);
@@ -128,7 +128,6 @@ class RegisterController extends Controller
 
     $user = User::create([
       'name' => $userName,
-      'nickname' => $request->nickname,
       'email' => $request->email,
       'password' => Hash::make($request->password),
       'family_id' => $request->family_id,
@@ -141,4 +140,9 @@ class RegisterController extends Controller
     return $this->registered($request, $user)
       ?: redirect($this->redirectPath());
   }
+  public function redirectPath()
+    {
+      $family = Family::where('id', Auth::user()->family_id)->first();
+      return "families/$family->id/edit";
+    }
 }
