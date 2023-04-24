@@ -13,16 +13,13 @@ return new class extends Migration
    */
   public function up()
   {
-    Schema::create('users', function (Blueprint $table) {
+    Schema::create('recipes', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->unsignedBigInteger('family_id');
-      $table->string('name');
-      $table->string('nickname')->nullable();
-      $table->string('email')->unique();
-      $table->timestamp('email_verified_at')->nullable();
-      $table->string('password');
-      $table->string('avatar')->nullable();
-      $table->rememberToken();
+      $table->string('title');
+      $table->text('description');
+      $table->string('serving');
+      $table->string('image')->nullable();
       $table->timestamps();
 
       $table->foreign('family_id')
@@ -38,6 +35,6 @@ return new class extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('users');
+    Schema::dropIfExists('recipes');
   }
 };

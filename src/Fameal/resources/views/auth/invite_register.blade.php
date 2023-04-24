@@ -2,20 +2,34 @@
 @include('layouts.header')
 @section('content')
 @include('layouts.footer')
-<div class="content reset">
+<div class="content register">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8 mt-5">
         <div class="card">
-          <div class="card-header">{{ __('Reset Password') }}</div>
+          <div class="card-header">{{ __('auth.register') }}</div>
           <div class="card-body pt-5 pb-5">
-            <form method="POST" action="{{ route('password.update') }}">
+            @include('error_message')
+            <form method="POST" action="{{ route('register.invited') }}">
               @csrf
               <input type="hidden" name="token" value="{{ $token }}">
+              <input type="hidden" name="family_id" value="{{ $family_id }}">
+              <input type="hidden" name="email" value="{{ $email }}">
+              <div class="row mb-4">
+                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                <div class="col-md-6">
+                  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  @error('name')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
               <div class="row mb-4">
                 <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
                 <div class="col-md-6">
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email }}" required autocomplete="email">
                   @error('email')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -41,13 +55,13 @@
                 </div>
               </div>
               <div class="button-box">
-                <button type="submit" class="button reset-button">
-                    {{ __('Reset Password') }}
+                <button type="submit" class="button">
+                  {{ __('Register') }}
                 </button>
               </div>
             </form>
           </div>
-        </div>
+        </dv>
       </div>
     </div>
   </div>

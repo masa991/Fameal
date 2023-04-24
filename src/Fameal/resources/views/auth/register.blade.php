@@ -9,6 +9,7 @@
         <div class="card">
           <div class="card-header">{{ __('auth.register') }}</div>
           <div class="card-body pt-5 pb-5">
+            @include('error_message')
             <form method="POST" action="{{ route('register') }}">
               @csrf
               <div class="row mb-4">
