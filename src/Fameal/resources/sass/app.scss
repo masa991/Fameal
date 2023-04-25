@@ -30,6 +30,22 @@ main {
   min-height: 70rem;
 }
 
+.content-header {
+  max-width: 104rem;
+  margin: 0 auto;
+  padding: 3rem 2rem 0;
+}
+
+.content-header-title {
+  padding-bottom: 3rem;
+}
+
+.content-container {
+  max-width: 104rem;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
 .button {
   width: 15rem;
   border-radius: 0.6rem;
@@ -216,4 +232,45 @@ main {
 
 .reset-button {
   width: 24rem;
+}
+
+/*-----------------------------------------------------------------------------------------------------
+   families/show             families/show            families/show            families/show
+------------------------------------------------------------------------------------------------------*/
+.header-family-name {
+  font-weight: bold;
+  display: inline-block;
+  border-bottom: 0.2rem solid #000;
+}
+
+.family-main {
+  padding: 0 2rem;
+}
+
+.family-section {
+  margin: 2rem auto 6rem;
+}
+
+.today-meal {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.today-recipe {
+  display: block;
+  margin: 0 auto;
+  max-width: 40rem;
+  margin-bottom: 3rem;
+}
+
+.today-recipe-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: bold;
+  span {
+    font-size: 3.6rem;
+    margin-right: 1rem;
+  }
 }

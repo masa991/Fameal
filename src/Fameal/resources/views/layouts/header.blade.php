@@ -1,9 +1,15 @@
 @section('header')
 <nav class="navbar navbar-expand-md navbar-light shadow-sm header-nav">
   <div class="container">
-    <a class="header-title" href="{{ url('/') }}">
-      {{ __('Fameal') }}
-    </a>
+    @guest
+      <a class="header-title" href="{{ url('/') }}">
+        {{ __('Fameal') }}
+      </a>
+    @else
+      <a class="header-title" href="{{ route('families.show', ['id' => Auth::user()->family_id]) }}">
+        {{ __('Fameal') }}
+      </a>
+    @endguest
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,6 +37,7 @@
               {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('users.edit') }}">プロフィール編集</a>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

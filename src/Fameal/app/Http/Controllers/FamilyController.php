@@ -35,12 +35,19 @@ class FamilyController extends Controller
   public function show($id)
   {
     $today = Carbon::now();
-    $family = Family::find($id);
+    $family = Family::findOrFail($id);
     $users = User::with('family');
     $schedule = Schedule::with('family')->where('start_date', '<=', $today)->where('end_date', '>=', $today)->first();
-    if ($schedule) {
-      $recipe = Recipe::with('family')->where('title', $schedule->menu_name);
+    if (empty($schedule)) {
+      $schedule = ['menu_name' => ""];
     }
-    return view('families/show', ['id', $id]);
+    $recipe = Recipe::with('family')->where('title', $schedule['menu_name'])->first();
+    return view('families/show', [
+      'id' => $id,
+      'family' => $family,
+      'users' => $users,
+      'schedule' => $schedule,
+      'recipe' => $recipe,
+    ]);
   }
 }
