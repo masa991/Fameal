@@ -28,7 +28,7 @@ Route::get('invite', 'App\Http\Controllers\InviteController@showLinkRequestForm'
 Route::post('invite', 'App\Http\Controllers\InviteController@sendInviteFamilyEmail')->name('invite.email')->middleware('auth');
 
 
-Route::prefix('users')->group(function () {
+Route::prefix('users')->name('users.')->group(function () {
   Route::middleware('auth')->group(function () {
     Route::get('/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('edit');
     Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
