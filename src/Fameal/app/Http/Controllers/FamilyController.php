@@ -8,6 +8,7 @@ use App\Models\Schedule;
 use App\Models\Recipe;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FamilyController extends Controller
 {
@@ -36,8 +37,10 @@ class FamilyController extends Controller
     $today = Carbon::now();
     $family = Family::find($id);
     $users = User::with('family');
-    $schedule = Schedule::with('family')->where('start_date', '<=', $today)->where('end_date', '>=', $today);
-    $recipe = Recipe::with('family')->where('title', $schedule->menu_name);
+    $schedule = Schedule::with('family')->where('start_date', '<=', $today)->where('end_date', '>=', $today)->first();
+    if ($schedule) {
+      $recipe = Recipe::with('family')->where('title', $schedule->menu_name);
+    }
     return view('families/show', ['id', $id]);
   }
 }

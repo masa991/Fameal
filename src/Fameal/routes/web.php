@@ -43,4 +43,6 @@ Route::prefix('families')->name('families.')->group(function () {
   });
 });
 
+Route::post('/schedule-add', [App\Http\Controllers\ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
+
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
